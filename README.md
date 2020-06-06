@@ -1,2 +1,2 @@
-# dj-thinhblog-com
+# Thinh Blog
 Create a blog with Django
