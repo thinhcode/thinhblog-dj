@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="{% block desc %}{% endblock %}">
+  {% block style_extra %}{% endblock %}
+</head>
+<body>
+  {% include 'blogs/header.html' %}
+  {% block content %}{% endblock %}
+  {% include 'blogs/footer.html' %}
+  {% block script_extra %}{% endblock %}
+</body>
+</html>
