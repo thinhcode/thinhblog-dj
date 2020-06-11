@@ -1,0 +1,10 @@
+/* Thinh Blog CSS */
+
+footer .container {
+    opacity: .3;
+    transition: opacity .5s;
+}
+
+footer .container:hover {
+    opacity: 1;
+}
