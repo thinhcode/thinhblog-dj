@@ -2,14 +2,15 @@
 {% block title %}Thịnh Blog &bull; Lập trình, Chụp ảnh và Khám phá{% endblock %}
 {% block desc %}{% endblock %}
 {% block content %}
+{% load static %}
 <main role="main" class="container mt-3">
   <div class="row">
     <div class="col-lg-8">
-      <div class="d-none d-xl-block text-center mb-4">
-        <img src="./static/img/ads/728x90.png" alt="728x90">
+      <div class="d-none d-xl-block text-center mb-4 h-90px">
+        <!-- <img src="{% static 'blogs/img/ads/728x90.png' %}" alt="728x90"> -->
       </div>
-      <div class="d-none d-sm-block d-xl-none text-center mb-4">
-        <img src="./static/img/ads/468x60.png" alt="468x60">
+      <div class="d-none d-sm-block d-xl-none text-center mb-4 h-60px">
+        <!-- <img src="{% static 'blogs/img/ads/468x60.png' %}" alt="468x60"> -->
       </div>
       <div class="row row-cols-1 row-cols-md-2">
         <div class="col mb-4">
@@ -85,11 +86,11 @@
           </section>
         </div>
       </div>
-      <div class="d-none d-xl-block text-center mb-4">
-        <img src="./static/img/ads/728x90.png" alt="728x90">
+      <div class="d-none d-xl-block text-center mb-4 h-90px">
+        <!-- <img src="{% static 'blogs/img/ads/728x90.png' %}" alt="728x90"> -->
       </div>
-      <div class="d-none d-sm-block d-xl-none text-center mb-4">
-        <img src="./static/img/ads/468x60.png" alt="468x60">
+      <div class="d-none d-sm-block d-xl-none text-center mb-4 h-60px">
+        <!-- <img src="{% static 'blogs/img/ads/468x60.png' %}" alt="468x60"> -->
       </div>
       <div class="row row-cols-1 row-cols-md-2">
         <div class="col mb-4">
@@ -146,8 +147,8 @@
         <hr>
         <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium repellat beatae ab eum atque officia culpa saepe excepturi? Sed unde quisquam tenetur illum magnam cupiditate voluptate pariatur ipsam vel nam.</p>
       </div>
-      <div class="text-center mb-4">
-        <img src="./static/img/ads/300x250.png" alt="300x250">
+      <div class="text-center mb-4 h-250px">
+        <!-- <img src="{% static 'blogs/img/ads/300x250.png' %}" alt="300x250"> -->
       </div>
       <div class="bg-white p-4 mb-4 rounded shadow-sm">
         <h4>Phổ biến</h4>
@@ -158,8 +159,8 @@
           <li><a href="#" class="text-decoration-none text-dark">Lorem ipsum dolor sit amet consectetur.</a></li>
         </ul>
       </div>
-      <div class="sticky-top text-center mb-4">
-        <img src="./static/img/ads/300x600.png" alt="300x600">
+      <div class="sticky-top text-center mb-4 h-600px">
+        <!-- <img src="{% static 'blogs/img/ads/300x600.png' %}" alt="300x600"> -->
       </div>
     </aside>
   </div>
