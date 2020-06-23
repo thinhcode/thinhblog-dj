@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
@@ -64,6 +66,7 @@ class Post(models.Model):
     title = models.CharField(_('Tiêu đề'), max_length=200)
     slug = models.SlugField(_('Đường dẫn'))
     author = models.ForeignKey(to=Author, verbose_name=_('Tác giả'), on_delete=models.CASCADE, default=1)
+    timestamp = models.DateTimeField(_('Cập nhật'), default=timezone.now)
     description = models.CharField(_('Mô tả'), max_length=300, blank=True)
     content = models.TextField(_('Nội dung'), blank=True)
     categories = models.ForeignKey(to=Category, verbose_name=_('Danh mục'), on_delete=models.SET_NULL, null=True)
@@ -74,6 +77,12 @@ class Post(models.Model):
     class Meta:
         verbose_name = _('Bài viết')
         verbose_name_plural = _('Bài viết')
+
+    def get_absolute_url(self):
+        return reverse('blogs:post-detail', kwargs={'slug': self.slug})
+
+    def tags_list(self):
+        return self.tags.split(', ')
 
     def __str__(self):
         return self.title

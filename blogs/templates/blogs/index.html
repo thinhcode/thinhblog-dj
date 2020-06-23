@@ -13,6 +13,26 @@
         <!-- <img src="{% static 'blogs/img/ads/468x60.png' %}" alt="468x60"> -->
       </div>
       <div class="row row-cols-1 row-cols-md-2">
+        {% for post in post_list %}
+        <div class="col mb-4">
+          <section class="card h-100 shadow-sm border-0">
+            <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" class="card-img-top" alt="{{ post.title }}"></a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{{ post.get_absolute_url }}" class="card-link text-dark">{{ post }}</a></h5>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-8">
+                  <small class="text-muted">Cập nhật: {{ post.timestamp|date:'d.m.Y' }}</small>
+                </div>
+                <div class="col-4 text-right">
+                  <a href="#" class="badge badge-dark">{{ post.categories }}</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        {% endfor %}
         <div class="col mb-4">
           <section class="card h-100 shadow-sm border-0">
             <a href="./single.html"><img src="./static/img/350x200.png" class="card-img-top" alt=""></a>
@@ -141,28 +161,7 @@
         </div>
       </nav>
     </div>
-    <aside class="col-lg-4">
-      <div class="bg-white p-4 mb-4 rounded shadow-sm">
-        <h4>Giới thiệu</h4>
-        <hr>
-        <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium repellat beatae ab eum atque officia culpa saepe excepturi? Sed unde quisquam tenetur illum magnam cupiditate voluptate pariatur ipsam vel nam.</p>
-      </div>
-      <div class="text-center mb-4 h-250px">
-        <!-- <img src="{% static 'blogs/img/ads/300x250.png' %}" alt="300x250"> -->
-      </div>
-      <div class="bg-white p-4 mb-4 rounded shadow-sm">
-        <h4>Phổ biến</h4>
-        <hr>
-        <ul>
-          <li><a href="#" class="text-decoration-none text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a></li>
-          <li><a href="#" class="text-decoration-none text-dark">Lorem ipsum dolor sit amet.</a></li>
-          <li><a href="#" class="text-decoration-none text-dark">Lorem ipsum dolor sit amet consectetur.</a></li>
-        </ul>
-      </div>
-      <div class="sticky-top text-center mb-4 h-600px">
-        <!-- <img src="{% static 'blogs/img/ads/300x600.png' %}" alt="300x600"> -->
-      </div>
-    </aside>
+    {% include 'blogs/sidebar.html' %}
   </div>
 </main>
 {% endblock %}
