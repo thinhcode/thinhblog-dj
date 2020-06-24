@@ -1,3 +1,4 @@
+from tinymce.models import HTMLField
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -52,7 +53,7 @@ class Page(models.Model):
     title = models.CharField(_('Tiêu đề'), max_length=200)
     slug = models.SlugField(_('Đường dẫn'))
     description = models.CharField(_('Mô tả'), max_length=300, blank=True)
-    content = models.TextField(_('Nội dung'), blank=True)
+    content = HTMLField(_('Nội dung'), blank=True)
 
     class Meta:
         verbose_name = _('Trang')
@@ -68,7 +69,7 @@ class Post(models.Model):
     author = models.ForeignKey(to=Author, verbose_name=_('Tác giả'), on_delete=models.CASCADE, default=1)
     timestamp = models.DateTimeField(_('Cập nhật'), default=timezone.now)
     description = models.CharField(_('Mô tả'), max_length=300, blank=True)
-    content = models.TextField(_('Nội dung'), blank=True)
+    content = HTMLField(_('Nội dung'), blank=True)
     categories = models.ForeignKey(to=Category, verbose_name=_('Danh mục'), on_delete=models.SET_NULL, null=True)
     tags = models.CharField(_('Thẻ'), max_length=200, help_text='Cách nhau bởi dấu ,', blank=True)
     thumbnail = models.ImageField(_('Ảnh bìa'), upload_to='blogs/%Y/%m', help_text='350x200px', blank=True)

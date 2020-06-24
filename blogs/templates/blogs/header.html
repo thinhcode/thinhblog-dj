@@ -9,8 +9,13 @@
           <li class="nav-item active">
             <a href="{% url 'blogs:post-list' %}" class="nav-link">Trang chủ</a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Danh mục</a>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danh mục</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {% for category in categories %}
+              <a class="dropdown-item" href="#">{{ category }}</a>
+              {% endfor %}
+            </div>
           </li>
         </ul>
       </div>
@@ -25,7 +30,7 @@
           </li>
         </ul>
         <div class="ml-lg-2">
-          <a href="#" class="btn mt-2 mt-lg-0 px-2" title="Đăng nhập" target="_blank"><i class="fas fa-user"></i></a>
+          <a href="/admin/" class="btn mt-2 mt-lg-0 px-2" title="Đăng nhập" target="_blank"><i class="fas fa-user"></i></a>
           <a href="#" class="btn mt-2 mt-lg-0 px-2" title="Tìm kiếm" target="_blank"><i class="fas fa-search"></i></a>
         </div>
       </div>

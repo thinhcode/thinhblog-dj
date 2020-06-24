@@ -33,78 +33,6 @@
           </section>
         </div>
         {% endfor %}
-        <div class="col mb-4">
-          <section class="card h-100 shadow-sm border-0">
-            <a href="./single.html"><img src="./static/img/350x200.png" class="card-img-top" alt=""></a>
-            <div class="card-body">
-              <h5 class="card-title"><a href="./single.html" class="card-link text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a></h5>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-8">
-                  <small class="text-muted">Cập nhật: 30.04.2020</small>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="#" class="badge badge-dark">Lập trình</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="col mb-4">
-          <section class="card h-100 shadow-sm border-0">
-            <a href="#"><img src="./static/img/350x200.png" class="card-img-top" alt=""></a>
-            <div class="card-body">
-              <h5 class="card-title"><a href="#" class="card-link text-dark">Lorem ipsum dolor sit amet.</a></h5>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-8">
-                  <small class="text-muted">Cập nhật: 30.04.2020</small>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="#" class="badge badge-danger">Công nghệ</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="col mb-4">
-          <section class="card h-100 shadow-sm border-0">
-            <a href="#"><img src="./static/img/350x200.png" class="card-img-top" alt=""></a>
-            <div class="card-body">
-              <h5 class="card-title"><a href="#" class="card-link text-dark">Lorem ipsum dolor sit amet.</a></h5>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-8">
-                  <small class="text-muted">Cập nhật: 30.04.2020</small>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="#" class="badge badge-warning">Nhiếp ảnh</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="col mb-4">
-          <section class="card h-100 shadow-sm border-0">
-            <a href="#"><img src="./static/img/350x200.png" class="card-img-top" alt=""></a>
-            <div class="card-body">
-              <h5 class="card-title"><a href="#" class="card-link text-dark">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et, repellendus.</a></h5>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-8">
-                  <small class="text-muted">Cập nhật: 30.04.2020</small>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="#" class="badge badge-success">Đời sống</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
       </div>
       <div class="d-none d-xl-block text-center mb-4 h-90px">
         <!-- <img src="{% static 'blogs/img/ads/728x90.png' %}" alt="728x90"> -->
@@ -153,10 +81,14 @@
       <nav aria-label="Page navigation" class="container mb-4">
         <div class="row">
           <div class="col-6 text-right pr-2">
-            <a href="#" class="btn bg-dark text-light w-75">Mới</a>
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn bg-secondary text-light w-75">Trước</a>
+            {% endif %}
           </div>
           <div class="col-6 pl-2">
-            <a href="#" class="btn bg-secondary text-light w-75">Cũ</a>
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn bg-dark text-light w-75">Tiếp</a>
+            {% endif %}
           </div>
         </div>
       </nav>
