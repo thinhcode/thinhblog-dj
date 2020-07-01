@@ -76,6 +76,7 @@ class Post(models.Model):
     publish = models.BooleanField(_('Công khai'), default=True)
 
     class Meta:
+        ordering = ['-timestamp']
         verbose_name = _('Bài viết')
         verbose_name_plural = _('Bài viết')
 

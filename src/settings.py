@@ -123,3 +123,11 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Tinymce
+# https://pypi.org/project/django-tinymce/
+
+TINYMCE_DEFAULT_CONFIG = {
+    'entity_encoding': 'raw', 
+}

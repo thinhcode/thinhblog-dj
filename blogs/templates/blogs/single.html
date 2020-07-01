@@ -5,6 +5,9 @@
 <main role="main" class="container mt-3">
   <div class="row">
     <div class="col-lg-8">
+      <form action="{% url 'blogs:search' %}" method="get" id="formSearch">
+        <input type="search" name="q" class="form-control" placeholder="Tìm kiếm">
+      </form>
       <div class="d-none d-xl-block text-center mb-4 h-90px">
       </div>
       <div class="d-none d-sm-block d-xl-none text-center mb-4 h-60px">

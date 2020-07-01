@@ -4,8 +4,14 @@
 {% block content %}
 {% load static %}
 <main role="main" class="container mt-3">
+  {{ queryset }}
   <div class="row">
     <div class="col-lg-8">
+      <div class="container mt-1 mb-3">
+        <form action="{% url 'blogs:search' %}" method="get" id="formSearch">
+          <input type="search" name="q" class="form-control" value="{{ search_query }}" placeholder="Tìm kiếm">
+        </form>
+      </div>
       <div class="d-none d-xl-block text-center mb-4 h-90px">
         <!-- <img src="{% static 'blogs/img/ads/728x90.png' %}" alt="728x90"> -->
       </div>
