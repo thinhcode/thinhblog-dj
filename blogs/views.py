@@ -22,7 +22,7 @@ class SearchView(ListView):
         search_query = self.request.GET.get('q', '')
         search_list = Post.objects.filter(
             Q(title__icontains=search_query) | Q(tags__icontains=search_query) | Q(content__icontains=search_query)
-        ).distinct()
+        ).order_by('-timestamp')
         return search_list
 
     def get_context_data(self, **kwargs):

@@ -9,6 +9,31 @@ footer .container:hover {
     opacity: 1;
 }
 
+.ad {
+    border: 1px solid #6c757d;
+    margin: 0 auto;
+}
+
+.ad-728x90 {
+    height: 90px;
+    width: 728px;
+}
+
+.ad-468x60 {
+    height: 60px;
+    width: 468px;
+}
+
+.ad-300x250 {
+    height: 250px;
+    width: 300px;
+}
+
+.ad-300x600 {
+    height: 600px;
+    width: 300px;
+}
+
 .card > a {
     overflow: hidden;
 }
@@ -23,22 +48,6 @@ footer .container:hover {
 
 .card-img-top:hover {
     transform: scale(1.15);
-}
-
-.h-60px {
-    height: 60px;
-}
-
-.h-90px {
-    height: 90px;
-}
-
-.h-250px {
-    height: 250px;
-}
-
-.h-600px {
-    height: 600px;
 }
 
 #formSearch {
