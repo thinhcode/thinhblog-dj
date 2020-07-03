@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{% endblock %}</title>
   <meta name="description" content="{% block description %}{% endblock %}">
-  <link rel="stylesheet" href="{% static 'blogs/css/bootstrap-4.5.0.min.css' %}">
-  <link rel="stylesheet" href="{% static 'blogs/css/fontawesome-5.13.0.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/bootstrap-4.5.0.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/fontawesome-5.13.0.min.css' %}">
   <link rel="stylesheet" href="{% static 'blogs/css/style.css' %}">
   {% block style_extra %}{% endblock %}
 </head>
@@ -15,9 +15,9 @@
   {% include 'blogs/header.html' %}
   {% block content %}{% endblock %}
   {% include 'blogs/footer.html' %}
-  <script src="{% static 'blogs/js/jquery-3.5.1.min.js' %}"></script>
-  <script src="{% static 'blogs/js/popper-1.16.0.min.js' %}"></script>
-  <script src="{% static 'blogs/js/bootstrap-4.5.0.min.js' %}"></script>
+  <script src="{% static 'vendors/js/jquery-3.5.1.min.js' %}"></script>
+  <script src="{% static 'vendors/js/popper-1.16.0.min.js' %}"></script>
+  <script src="{% static 'vendors/js/bootstrap-4.5.0.min.js' %}"></script>
   <script>
     $(document).ready(function(){
       $("#btnSearch").click(function(){

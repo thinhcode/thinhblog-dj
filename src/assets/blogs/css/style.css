@@ -67,7 +67,7 @@ footer .container:hover {
     bottom: .5rem;
     color: rgba(108, 117, 125, .3);
     display: none;
-    font-size: 2.5rem;
+    font-size: 3rem;
     position: fixed;
     right: 1rem;
     z-index: 1021;
