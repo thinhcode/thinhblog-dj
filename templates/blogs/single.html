@@ -11,10 +11,10 @@
         </form>
       </div>
       <div class="d-none d-xl-block text-center mb-4">
-        <div class="ad ad-728x90"></div>
+        <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
       </div>
       <div class="d-none d-sm-block d-xl-none text-center mb-4 h-60px">
-        <div class="ad ad-468x60"></div>
+        <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
       </div>
       <section class="header">
         <h2><strong>{{ post }}</strong></h2>
@@ -23,7 +23,7 @@
           <div class="col-8">
             <small class="text-mutex">Cập nhật: {{ post.timestamp|date:'d.m.Y' }} | <a href="#" class="text-decoration-none text-info">{{ post.author }}</a></small>
             <br>
-            <small class="text-mutex">Lượt xem: 200</small>
+            <small class="text-mutex">Lượt xem: {{ post.views }}</small>
             <br>
             <small class="text-mutex">Tags:</small>
             <small>

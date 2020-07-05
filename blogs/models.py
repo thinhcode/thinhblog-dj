@@ -44,6 +44,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = _('Danh mục')
         verbose_name_plural = _('Danh mục')
+        ordering = ['-title']
 
     def __str__(self):
         return self.title
@@ -74,6 +75,7 @@ class Post(models.Model):
     tags = models.CharField(_('Thẻ'), max_length=200, help_text='Cách nhau bởi dấu ,', blank=True)
     thumbnail = models.ImageField(_('Ảnh bìa'), upload_to='blogs/%Y/%m', help_text='350x200px', blank=True)
     publish = models.BooleanField(_('Công khai'), default=True)
+    views = models.PositiveIntegerField(_('Lượt xem'), default=0)
 
     class Meta:
         verbose_name = _('Bài viết')
@@ -90,7 +92,6 @@ class Post(models.Model):
 
 
 class Setting(models.Model):
-    ads = models.ManyToManyField(to=Ad, verbose_name=_('Quảng cáo'), blank=True)
     google_code = models.TextField(blank=True)
     facebook = models.URLField(blank=True)
     email = models.EmailField(max_length=50, blank=True)
