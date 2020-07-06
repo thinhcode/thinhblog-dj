@@ -49,6 +49,26 @@ class SearchView(ListView):
         return context
 
 
+class CategoryListView(ListView):
+    model = Post
+    template_name = 'blogs/index.html'
+    ordering = ['-timestamp']
+    page_kwarg = _('trang')
+    paginate_by = 2
+
+    def get_queryset(self):
+        category_list = Post.objects.filter(categories__slug=self.kwargs.get('slug'))
+        ordering = self.get_ordering()
+        if ordering:
+            category_list = category_list.order_by(*ordering)
+        return category_list
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(get_general_context())
+        return context
+
+
 class PostListView(ListView):
     model = Post
     template_name = 'blogs/index.html'
