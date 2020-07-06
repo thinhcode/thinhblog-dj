@@ -45,57 +45,23 @@
       <div class="d-none d-xl-block text-center mb-4">
         <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
       </div>
-      <div class="d-none d-sm-block d-xl-none text-center mb-4 h-60px">
+      <div class="d-none d-sm-block d-xl-none text-center mb-4">
         <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mb-4">
-          <section class="card h-100 shadow-sm border-0">
-            <a href="#"><img src="./static/img/350x200.png" class="card-img-top" alt=""></a>
-            <div class="card-body">
-              <h5 class="card-title"><a href="#" class="card-link text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a></h5>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-8">
-                  <small class="text-muted">Cập nhật: 30.04.2020</small>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="#" class="badge badge-dark">Lập trình</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="col mb-4">
-          <section class="card h-100 shadow-sm border-0">
-            <a href="#"><img src="./static/img/350x200.png" class="card-img-top" alt=""></a>
-            <div class="card-body">
-              <h5 class="card-title"><a href="#" class="card-link text-dark">Lorem ipsum dolor sit amet.</a></h5>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-8">
-                  <small class="text-muted">Cập nhật: 30.04.2020</small>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="#" class="badge badge-danger">Công nghệ</a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
       </div>
       <nav aria-label="Page navigation" class="container mb-4">
         <div class="row">
           <div class="col-6 text-right pr-2">
             {% if page_obj.has_previous %}
-            <a href="?trang={{ page_obj.previous_page_number }}" class="btn bg-secondary text-light w-75">Trước</a>
+            <a href="?trang={{ page_obj.previous_page_number }}" class="btn btn-secondary text-light w-75">Trước</a>
+            {% else %}
+            <a class="btn btn-outline-secondary text-secondary disabled w-75">Trước</a>
             {% endif %}
           </div>
           <div class="col-6 pl-2">
             {% if page_obj.has_next %}
             <a href="?trang={{ page_obj.next_page_number }}" class="btn bg-dark text-light w-75">Tiếp</a>
+            {% else %}
+            <a class="btn btn-outline-dark text-dark disabled w-75">Tiếp</a>
             {% endif %}
           </div>
         </div>
