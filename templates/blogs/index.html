@@ -32,7 +32,7 @@
                   <small class="text-muted">Cập nhật: {{ post.timestamp|date:'d.m.Y' }}</small>
                 </div>
                 <div class="col-4 text-right">
-                  <a href="#" class="badge badge-dark">{{ post.categories }}</a>
+                  <a href="{{ post.categories.get_absolute_url }}" class="badge badge-dark">{{ post.categories }}</a>
                 </div>
               </div>
             </div>
