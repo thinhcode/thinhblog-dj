@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from django.shortcuts import render
 from django.db.models import F, Q
 from django.views.generic import base, ListView, DetailView, View
@@ -7,6 +8,11 @@ from .models import Ad, Category, Post, Setting
 
 def get_ad_queryset(id: int):
     return Ad.objects.filter(style__exact=str(id)).last()
+
+
+def get_top_posts(capacity: int):
+    past_date = date.today() - timedelta(days=30)
+    return Post.objects.filter(timestamp__date__gte=past_date).order_by('-views')[:capacity]
 
 
 # Generic Context Mixin
@@ -24,6 +30,8 @@ class GenCtxMixin(base.ContextMixin):
             context['facebook'] = setting_obj.values().last().get('facebook')
             context['email'] = setting_obj.values().last().get('email')
             context['github'] = setting_obj.values().last().get('github')
+
+        context['top_posts'] = get_top_posts(3)
         return context
 
 

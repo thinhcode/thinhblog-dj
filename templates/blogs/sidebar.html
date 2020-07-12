@@ -10,10 +10,13 @@
   <div class="bg-white p-4 mb-4 rounded shadow-sm">
     <h4>Phổ biến</h4>
     <hr>
-    <ul>
-      <li><a href="#" class="text-decoration-none text-dark">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</a></li>
-      <li><a href="#" class="text-decoration-none text-dark">Lorem ipsum dolor sit amet.</a></li>
-      <li><a href="#" class="text-decoration-none text-dark">Lorem ipsum dolor sit amet consectetur.</a></li>
+    <ul class="list-group list-group-flush">
+      {% for top_post in top_posts %}
+      <li class="list-group-item d-flex list-group-item-action justify-content-between align-items-center px-0">
+        <a href="{{ top_post.get_absolute_url }}" class="text-decoration-none text-dark">{{ top_post }}</a>
+        <span class="badge badge-dark">{{ top_post.views }}</span>
+      </li>
+      {% endfor %}
     </ul>
   </div>
   <div class="sticky-top text-center mb-4">
