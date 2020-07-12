@@ -1,0 +1,42 @@
+[
+    {
+        "model": "blogs.page",
+        "pk": 1,
+        "fields": {
+            "title": "Giới thiệu",
+            "slug": "gioi-thieu"
+        }
+    },
+    {
+        "model": "blogs.page",
+        "pk": 2,
+        "fields": {
+            "title": "Liên hệ",
+            "slug": "lien-he"
+        }
+    },
+    {
+        "model": "blogs.page",
+        "pk": 3,
+        "fields": {
+            "title": "Chính sách",
+            "slug": "chinh-sach"
+        }
+    },
+    {
+        "model": "blogs.page",
+        "pk": 4,
+        "fields": {
+            "title": "Phản hồi",
+            "slug": "phan-hoi"
+        }
+    },
+    {
+        "model": "blogs.page",
+        "pk": 5,
+        "fields": {
+            "title": "Quảng cáo",
+            "slug": "quang-cao"
+        }
+    }
+]
