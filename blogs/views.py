@@ -1,13 +1,12 @@
 from datetime import date, timedelta
-from django.shortcuts import render
 from django.db.models import F, Q
-from django.views.generic import base, ListView, DetailView, View
+from django.views.generic import base, ListView, DetailView
 from django.utils.translation import gettext_lazy as _
 from .models import Ad, Category, Post, Setting
 
 
-def get_ad_queryset(id: int):
-    return Ad.objects.filter(style__exact=str(id)).last()
+def get_ad_queryset(style_id: int):
+    return Ad.objects.filter(style__exact=str(style_id)).last()
 
 
 def get_top_posts(capacity: int):
