@@ -38,7 +38,6 @@ class SearchView(GenCtxMixin, ListView):
     model = Post
     template_name = 'blogs/index.html'
     ordering = ['-timestamp']
-    page_kwarg = _('trang')
     paginate_by = 2
 
     def get_queryset(self):
@@ -61,7 +60,6 @@ class CategoryListView(GenCtxMixin, ListView):
     model = Post
     template_name = 'blogs/index.html'
     ordering = ['-timestamp']
-    page_kwarg = _('trang')
     paginate_by = 2
 
     def get_queryset(self):
@@ -76,7 +74,6 @@ class PostListView(GenCtxMixin, ListView):
     model = Post
     template_name = 'blogs/index.html'
     ordering = ['-timestamp']
-    page_kwarg = _('trang')
     paginate_by = 2
 
 
