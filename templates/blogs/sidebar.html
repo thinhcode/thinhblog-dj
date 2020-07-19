@@ -1,5 +1,5 @@
 <aside class="col-lg-4">
-  <div class="bg-white p-4 mb-4 rounded shadow-sm">
+  <div class="bg-white p-4 mb-4 rounded-note shadow-sm">
     <h4>Giới thiệu</h4>
     <hr>
     <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium repellat beatae ab eum atque officia culpa saepe excepturi? Sed unde quisquam tenetur illum magnam cupiditate voluptate pariatur ipsam vel nam.</p>
@@ -7,12 +7,12 @@
   <div class="text-center mb-4">
     <div class="ad ad-300x250">{{ ad_300x250.html_code|safe }}</div>
   </div>
-  <div class="bg-white p-4 mb-4 rounded shadow-sm">
+  <div class="bg-white p-4 mb-4 overflow-hidden rounded-note shadow-sm">
     <h4>Phổ biến</h4>
     <hr>
     <ul class="list-group list-group-flush">
       {% for top_post in top_posts %}
-      <li class="list-group-item d-flex list-group-item-action justify-content-between align-items-center px-0">
+      <li class="list-group-item d-flex list-group-item-action justify-content-between align-items-center px-2">
         <a href="{{ top_post.get_absolute_url }}" class="text-decoration-none text-dark">{{ top_post }}</a>
         <span class="badge badge-dark">{{ top_post.views }}</span>
       </li>
