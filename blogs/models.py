@@ -5,6 +5,17 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+BOOTSTRAP_COLOR = [
+    ('1', 'primary'),
+    ('2', 'secondary'),
+    ('3', 'success'),
+    ('4', 'danger'),
+    ('5', 'warning'),
+    ('6', 'info'),
+    ('7', 'light'),
+    ('8', 'dark'),
+]
+
 
 class Ad(models.Model):
     AD_STYLE = [
@@ -40,6 +51,7 @@ class Author(models.Model):
 class Category(models.Model):
     title = models.CharField(_('Tiêu đề'), max_length=200)
     slug = models.SlugField(_('Đường dẫn'))
+    color = models.CharField(_('Màu sắc'), max_length=1, choices=BOOTSTRAP_COLOR, default='8')
 
     class Meta:
         verbose_name = _('Danh mục')
