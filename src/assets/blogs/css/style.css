@@ -1,5 +1,9 @@
 /* Thinh Blog CSS */
 
+body, html {
+    font-family: "Quicksand", serif;
+}
+
 footer .container {
     opacity: .3;
     transition: opacity .5s;
@@ -34,6 +38,10 @@ footer .container:hover {
     width: 300px;
 }
 
+.btn-page > a {
+    border-radius: 50rem;
+}
+
 .card > a {
     overflow: hidden;
 }
@@ -48,6 +56,17 @@ footer .container:hover {
 
 .card-img-top:hover {
     transform: scale(1.15);
+}
+
+.rounded-note {
+    border-radius: 10% 25%;
+}
+
+#blog-name {
+    font-family: "Major Mono Display", serif;
+    font-size: 2rem;
+    letter-spacing: -.25rem;
+    word-spacing: -.5rem;
 }
 
 #formSearch {
