@@ -7,10 +7,10 @@
       <div class="col-lg-5 collapse navbar-collapse order-3 order-lg-2" id="navbar-left">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a href="{% url 'blogs:post-list' %}" class="nav-link">Trang chủ</a>
+            <a href="{% url 'blogs:index' %}" class="nav-link">Trang chủ</a>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danh mục</a>
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danh mục</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               {% for category in categories %}
               <a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category }}</a>
@@ -19,18 +19,18 @@
           </li>
         </ul>
       </div>
-      <div class="col col-lg-2 text-lg-center order-1 order-lg-3"><a href="{% url 'blogs:post-list' %}" class="navbar-brand mr-0"><h3 class="mb-0" id="blog-name">Thịnh Blog</h3></a></div>
+      <div class="col col-lg-2 text-lg-center order-1 order-lg-3"><a href="{% url 'blogs:index' %}" class="navbar-brand mr-0"><h3 class="mb-0" id="blog-name">Thịnh Blog</h3></a></div>
       <div class="col-lg-5 collapse navbar-collapse order-4 order-lg-4" id="navbar-right">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link">Giới thiệu</a>
+            <a href="{% url 'blogs:index' %}gioi-thieu/" class="nav-link">Giới thiệu</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Liên hệ</a>
+            <a href="{% url 'blogs:index' %}lien-he/" class="nav-link">Liên hệ</a>
           </li>
         </ul>
         <div class="ml-lg-2">
-          <a href="{% url 'blogs:post-list' %}admin/" class="btn mt-2 mt-lg-0 px-2" title="Đăng nhập" target="_blank"><i class="fas fa-user"></i></a>
+          <a href="{% url 'admin:index' %}" class="btn mt-2 mt-lg-0 px-2" title="Đăng nhập" target="_blank"><i class="fas fa-user"></i></a>
           <a id="btnSearch" class="btn mt-2 mt-lg-0 px-2" title="Tìm kiếm" target="_blank"><i class="fas fa-search"></i></a>
         </div>
       </div>

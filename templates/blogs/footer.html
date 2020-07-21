@@ -2,24 +2,24 @@
   <div class="container">
     <ul class="nav justify-content-center mb-3">
       <li class="nav-item">
-        <a href="#" class="nav-link text-light border-right border-secondary py-0">CHÍNH SÁCH</a>
+        <a href="{% url 'blogs:index' %}chinh-sach/" class="nav-link text-light border-right border-secondary py-0">CHÍNH SÁCH</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-light border-right border-secondary py-0">PHẢN HỒI</a>
+        <a href="{% url 'blogs:index' %}phan-hoi/" class="nav-link text-light border-right border-secondary py-0">PHẢN HỒI</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-light border-right border-secondary py-0">QUẢNG CÁO</a>
+        <a href="{% url 'blogs:index' %}quang-cao/" class="nav-link text-light border-right border-secondary py-0">QUẢNG CÁO</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link text-light py-0">LIÊN HỆ</a>
+        <a href="{% url 'blogs:index' %}lien-he" class="nav-link text-light py-0">LIÊN HỆ</a>
       </li>
     </ul>
     <div class="col-lg-8 text-center border-top border-secondary mx-auto pt-2">
       <section>&copy; THỊNH BLOG &bull; {% now "Y" %}</section>
       <section>
-        <a href="{{ facebook }}" class="btn p-0"><i class="fab fa-facebook-square text-light"></i></a>
+        <a href="{{ facebook }}" class="btn p-0" target="_blank"><i class="fab fa-facebook-square text-light"></i></a>
         <a href="mailto:{{ email }}" class="btn p-0"><i class="fas fa-envelope text-light"></i></a>
-        <a href="{{ github }}" class="btn p-0"><i class="fab fa-github-square text-light"></i></a>
+        <a href="{{ github }}" class="btn p-0" target="_blank"><i class="fab fa-github-square text-light"></i></a>
       </section>
     </div>
   </div>

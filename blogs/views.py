@@ -1,8 +1,7 @@
 from datetime import date, timedelta
 from django.db.models import F, Q
 from django.views.generic import base, ListView, DetailView
-from django.utils.translation import gettext_lazy as _
-from .models import Ad, Category, Post, Setting
+from .models import Ad, Category, Page, Post, Setting
 
 
 def get_ad_queryset(style_id: int):
@@ -75,6 +74,11 @@ class PostListView(GenCtxMixin, ListView):
     template_name = 'blogs/index.html'
     ordering = ['-timestamp']
     paginate_by = 2
+
+
+class PageDetailView(GenCtxMixin, DetailView):
+    model = Page
+    template_name = 'blogs/page.html'
 
 
 class PostDetailView(GenCtxMixin, DetailView):

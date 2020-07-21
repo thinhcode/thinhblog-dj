@@ -59,7 +59,7 @@ class Category(models.Model):
         ordering = ['-title']
 
     def get_absolute_url(self):
-        return reverse('blogs:category-list', kwargs={'slug': self.slug})
+        return reverse('blogs:category', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -97,7 +97,7 @@ class Post(models.Model):
         verbose_name_plural = _('Bài viết')
 
     def get_absolute_url(self):
-        return reverse('blogs:post-detail', kwargs={'slug': self.slug})
+        return reverse('blogs:post', kwargs={'slug': self.slug})
 
     def tags_list(self):
         return self.tags.split(', ')
