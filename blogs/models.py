@@ -88,7 +88,7 @@ class Post(models.Model):
     content = HTMLField(_('Nội dung'), blank=True)
     categories = models.ForeignKey(to=Category, verbose_name=_('Danh mục'), on_delete=models.SET_NULL, null=True)
     tags = models.CharField(_('Thẻ'), max_length=200, help_text='Cách nhau bởi dấu ,', blank=True)
-    thumbnail = models.ImageField(_('Ảnh bìa'), upload_to='blogs/%Y/%m', help_text='350x200px', blank=True)
+    thumbnail = models.ImageField(_('Ảnh bìa'), upload_to='blogs/%Y/%m', help_text='525x300px', blank=True)
     publish = models.BooleanField(_('Công khai'), default=True)
     views = models.PositiveIntegerField(_('Lượt xem'), default=0)
 
