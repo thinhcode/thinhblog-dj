@@ -3,6 +3,9 @@ from django.db.models import F, Q
 from django.views.generic import base, ListView, DetailView
 from .models import Ad, Category, Page, Post, Setting
 
+# TODO: this should is 6
+PAGINATED = 4
+
 
 def get_ad_queryset(style_id: int):
     return Ad.objects.filter(style__exact=str(style_id)).last()
@@ -37,7 +40,7 @@ class SearchView(GenCtxMixin, ListView):
     model = Post
     template_name = 'blogs/index.html'
     ordering = ['-timestamp']
-    paginate_by = 2
+    paginate_by = PAGINATED
 
     def get_queryset(self):
         search_query = self.request.GET.get('q', '')
@@ -59,7 +62,7 @@ class CategoryListView(GenCtxMixin, ListView):
     model = Post
     template_name = 'blogs/index.html'
     ordering = ['-timestamp']
-    paginate_by = 2
+    paginate_by = PAGINATED
 
     def get_queryset(self):
         category_list = Post.objects.filter(categories__slug=self.kwargs.get('slug'))
@@ -73,7 +76,7 @@ class PostListView(GenCtxMixin, ListView):
     model = Post
     template_name = 'blogs/index.html'
     ordering = ['-timestamp']
-    paginate_by = 2
+    paginate_by = PAGINATED
 
 
 class PageDetailView(GenCtxMixin, DetailView):
