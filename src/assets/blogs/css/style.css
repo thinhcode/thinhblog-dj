@@ -1,5 +1,9 @@
 /* Thinh Blog CSS */
 
+a.link:hover {
+    color: #00adb5 !important;
+}
+
 body, html {
     font-family: "Open Sans", serif;
 }
@@ -58,11 +62,17 @@ footer .container:hover {
     transform: scale(1.15);
 }
 
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 .rounded-note {
     border-radius: 10% 25%;
 }
 
 #blog-name {
+    color: #222831;
     font-family: "Major Mono Display", serif;
     font-size: 2rem;
     letter-spacing: -.25rem;

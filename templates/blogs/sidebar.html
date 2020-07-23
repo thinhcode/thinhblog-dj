@@ -13,7 +13,7 @@
     <ul class="list-group list-group-flush">
       {% for top_post in top_posts %}
       <li class="list-group-item d-flex list-group-item-action justify-content-between align-items-center px-2">
-        <a href="{{ top_post.get_absolute_url }}" class="text-decoration-none text-dark">{{ top_post }}</a>
+        <a href="{{ top_post.get_absolute_url }}" class="text-decoration-none text-dark link">{{ top_post }}</a>
         <span class="badge badge-dark">{{ top_post.views }}</span>
       </li>
       {% endfor %}

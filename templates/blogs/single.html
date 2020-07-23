@@ -36,10 +36,11 @@
             </small>
           </div>
           <div class="col-4 d-flex align-items-center justify-content-end">
-            <a href="{{ post.categories.get_absolute_url }}" class="badge badge-dark">{{ post.categories }}</a>
+            <a href="{{ post.categories.get_absolute_url }}" class="badge badge-{{ post.categories.get_color_display }}">{{ post.categories }}</a>
           </div>
         </div>
         <hr class="mt-1">
+        <img src="{{ post.thumbnail.url }}" class="img-fluid rounded mx-auto d-block mb-3" alt="{{ post }}">
         <article class="bg-white p-3 mb-4 rounded shadow-sm">
           {{ post.content|safe }}
         </article>
