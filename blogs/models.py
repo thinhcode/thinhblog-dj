@@ -107,6 +107,7 @@ class Post(models.Model):
 
 
 class Setting(models.Model):
+    short_intro = models.CharField(_('Giới thiệu ngắn'), max_length=300, blank=True)
     google_code = models.TextField(blank=True)
     facebook = models.URLField(blank=True)
     email = models.EmailField(max_length=50, blank=True)

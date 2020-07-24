@@ -27,6 +27,7 @@ class GenCtxMixin(base.ContextMixin):
 
         setting_obj = Setting.objects
         if setting_obj.exists():
+            context['short_intro'] = setting_obj.values().last().get('short_intro')
             context['facebook'] = setting_obj.values().last().get('facebook')
             context['email'] = setting_obj.values().last().get('email')
             context['github'] = setting_obj.values().last().get('github')
