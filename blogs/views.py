@@ -3,8 +3,7 @@ from django.db.models import F, Q
 from django.views.generic import base, ListView, DetailView
 from .models import Ad, Category, Page, Post, Setting
 
-# TODO: this should is 6
-PAGINATED = 4
+PAGINATED = 6
 
 
 def get_ad_queryset(style_id: int):

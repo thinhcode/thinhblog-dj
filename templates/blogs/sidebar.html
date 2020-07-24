@@ -1,18 +1,18 @@
 <aside class="col-lg-4">
   <div class="bg-white p-4 mb-4 rounded-note shadow-sm">
-    <h4>Giới thiệu</h4>
+    <h5>Giới thiệu</h5>
     <hr>
-    <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium repellat beatae ab eum atque officia culpa saepe excepturi? Sed unde quisquam tenetur illum magnam cupiditate voluptate pariatur ipsam vel nam.</p>
+    <p class="side-small-text mb-0 px-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium repellat beatae ab eum atque officia culpa saepe excepturi? Sed unde quisquam tenetur illum magnam cupiditate voluptate pariatur ipsam vel nam.</p>
   </div>
   <div class="text-center mb-4">
     <div class="ad ad-300x250">{{ ad_300x250.html_code|safe }}</div>
   </div>
   <div class="bg-white p-4 mb-4 overflow-hidden rounded-note shadow-sm">
-    <h4>Phổ biến</h4>
-    <hr>
-    <ul class="list-group list-group-flush">
+    <h5>Phổ biến</h5>
+    <hr class="mb-0">
+    <ul class="list-group list-group-flush side-small-text">
       {% for top_post in top_posts %}
-      <li class="list-group-item d-flex list-group-item-action justify-content-between align-items-center px-2">
+      <li class="list-group-item d-flex list-group-item-action justify-content-between align-items-center px-3">
         <a href="{{ top_post.get_absolute_url }}" class="text-decoration-none text-dark link">{{ top_post }}</a>
         <span class="badge badge-dark">{{ top_post.views }}</span>
       </li>

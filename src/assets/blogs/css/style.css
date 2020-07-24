@@ -71,6 +71,10 @@ footer .container:hover {
     border-radius: 10% 25%;
 }
 
+.side-small-text {
+    font-size: .85rem;
+}
+
 #blog-name {
     color: #222831;
     font-family: "Major Mono Display", serif;
