@@ -99,7 +99,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('blogs:post', kwargs={'slug': self.slug})
 
-    def tags_list(self):
+    def tags_to_list(self):
         return self.tags.split(', ')
 
     def __str__(self):
