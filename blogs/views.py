@@ -1,6 +1,8 @@
+import random
 from datetime import date, timedelta
 from django.db.models import F, Q
 from django.views.generic import base, ListView, DetailView
+
 from .models import Ad, Category, Page, Post, Setting
 
 PAGINATED = 6
@@ -10,9 +12,35 @@ def get_ad_queryset(style_id: int):
     return Ad.objects.filter(style__exact=str(style_id)).last()
 
 
-def get_top_posts(capacity: int):
+def get_top_posts(cap: int):
     past_date = date.today() - timedelta(days=30)
-    return Post.objects.filter(timestamp__date__gte=past_date).order_by('-views')[:capacity]
+    return Post.objects.filter(timestamp__date__gte=past_date).order_by('-views')[:cap]
+
+
+def get_posts_from_key(key: str):
+    if not key:
+        return Post.objects.all()
+
+    posts = Post.objects.filter(
+        Q(title__icontains=key) | Q(tags__icontains=key) | Q(content__icontains=key)
+    )
+    return posts
+
+
+def get_related_posts(self):
+    this_post = self.get_object()
+    this_tags = this_post.tags
+
+    tags = this_tags.split(', ')
+    posts = set()
+    if len(tags) > 0:
+        for tag in tags:
+            posts.update(set(get_posts_from_key(tag)))
+    posts.discard(this_post)
+
+    if len(posts) > 1:
+        posts = random.sample(posts, k=2)
+    return posts
 
 
 # Generic Context Mixin
@@ -44,9 +72,7 @@ class SearchView(GenCtxMixin, ListView):
 
     def get_queryset(self):
         search_query = self.request.GET.get('q', '')
-        search_list = Post.objects.filter(
-            Q(title__icontains=search_query) | Q(tags__icontains=search_query) | Q(content__icontains=search_query)
-        )
+        search_list = get_posts_from_key(search_query)
         ordering = self.get_ordering()
         if ordering:
             search_list = search_list.order_by(*ordering)
@@ -93,3 +119,8 @@ class PostDetailView(GenCtxMixin, DetailView):
         post.views = F('views') + 1
         post.save()
         return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data()
+        context['post_list'] = get_related_posts(self)
+        return context
