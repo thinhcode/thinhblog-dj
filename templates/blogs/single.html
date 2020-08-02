@@ -22,7 +22,7 @@
         <hr class="mb-1">
         <div class="row">
           <div class="col-8">
-            <small class="text-mutex">Cập nhật: {{ post.timestamp|date:'d.m.Y' }} | <a href="#" class="text-decoration-none text-info">{{ post.author }}</a></small>
+            <small class="text-mutex">Cập nhật: {{ post.timestamp|date:'d.m.Y' }} | <a href="{{ post.author.website }}" class="text-decoration-none text-info">{{ post.author }}</a></small>
             <br>
             <small class="text-mutex">Lượt xem: {{ post.views }}</small>
             <br>

@@ -39,6 +39,7 @@ class Author(models.Model):
     user = models.OneToOneField(to=User, verbose_name=_('Người dùng'), on_delete=models.CASCADE)
     display_name = models.CharField(_('Tên hiển thị'), max_length=50)
     avatar = models.ImageField(_('Ảnh đại diện'), upload_to='blogs/%Y/%m', blank=True)
+    website = models.URLField(blank=True)
 
     class Meta:
         verbose_name = _('Người dùng')
