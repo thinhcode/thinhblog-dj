@@ -23,7 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tinymce',
+    'ckeditor',
+    'ckeditor_uploader',
     'blogs.apps.BlogsConfig',
 ]
 
@@ -114,9 +115,7 @@ FIXTURE_DIRS = [
     os.path.join(BASE_DIR, 'src/fixtures'),
 ]
 
-# Tinymce
-# https://pypi.org/project/django-tinymce/
+# CKEditor
+# https://pypi.org/project/django-ckeditor/
 
-TINYMCE_DEFAULT_CONFIG = {
-    'entity_encoding': 'raw',
-}
+CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
