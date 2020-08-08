@@ -4,6 +4,13 @@ a.link:hover {
     color: #00adb5 !important;
 }
 
+article.content img {
+    display: block;
+    height: auto !important;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
 body, html {
     font-family: "Open Sans", serif;
 }
