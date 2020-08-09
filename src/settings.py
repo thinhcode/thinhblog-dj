@@ -1,4 +1,5 @@
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -89,7 +90,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'vi-vn'
+LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = [
+    ('vi', _('Vietnamese')),
+    ('en', _('English')),
+]
 
 TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
