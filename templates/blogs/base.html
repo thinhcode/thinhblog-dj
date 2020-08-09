@@ -13,29 +13,29 @@
   {% block style_extra %}{% endblock %}
 </head>
 <body class="bg-light">
-  {% include 'blogs/header.html' %}
-  {% block content %}{% endblock %}
-  {% include 'blogs/footer.html' %}
-  <script src="{% static 'vendors/js/jquery-3.5.1.min.js' %}"></script>
-  <script src="{% static 'vendors/js/popper-1.16.0.min.js' %}"></script>
-  <script src="{% static 'vendors/js/bootstrap-4.5.0.min.js' %}"></script>
-  <script>
-    $(document).ready(function(){
-      $("#btnSearch").click(function(){
-        $("#formSearch").slideToggle(200);
-      });
-      $(window).scroll(function(){
-        if($(this).scrollTop()>500){
-          $("#to-top").fadeIn();
-        }else{
-          $("#to-top").fadeOut();
-        }
-      });
-      $("#to-top").click(function(){
-        $("html,body").animate({scrollTop:0});
-      });
+{% include 'blogs/header.html' %}
+{% block content %}{% endblock %}
+{% include 'blogs/footer.html' %}
+<script src="{% static 'vendors/js/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'vendors/js/popper-1.16.0.min.js' %}"></script>
+<script src="{% static 'vendors/js/bootstrap-4.5.0.min.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        $("#btnSearch").click(function () {
+            $("#formSearch").slideToggle(200);
+        });
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 500) {
+                $("#to-top").fadeIn();
+            } else {
+                $("#to-top").fadeOut();
+            }
+        });
+        $("#to-top").click(function () {
+            $("html,body").animate({scrollTop: 0});
+        });
     });
-  </script>
-  {% block script_extra %}{% endblock %}
+</script>
+{% block script_extra %}{% endblock %}
 </body>
 </html>

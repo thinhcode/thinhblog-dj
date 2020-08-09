@@ -1,74 +1,74 @@
 {% extends 'blogs/base.html' %}
+{% load static %}
 {% block title %}Thịnh Blog &bull; Lập trình, Chụp ảnh và Khám phá{% endblock %}
 {% block desc %}{% endblock %}
 {% block content %}
-{% load static %}
-<main role="main" class="container mt-3">
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="container mt-1 mb-3">
-        <form action="{% url 'blogs:search' %}" method="get" id="formSearch">
-          <label for="inSearch"></label>
-          <input type="search" name="q" class="form-control" id="inSearch" value="{{ search_query }}" placeholder="Tìm kiếm">
-        </form>
-      </div>
-      <div class="d-none d-xl-block text-center mb-4">
-        <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
-      </div>
-      <div class="d-none d-sm-block d-xl-none text-center mb-4">
-        <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
-        <div class="test"></div>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2">
-        {% for post in post_list %}
-        <div class="col mb-4">
-          <section class="card h-100 shadow-sm border-0">
-            <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" class="card-img-top" alt="{{ post.title }}"></a>
-            <div class="card-body">
-              <h2 class="card-title"><a href="{{ post.get_absolute_url }}" class="card-link text-dark link">{{ post }}</a></h2>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-8">
-                  <small class="text-muted">Cập nhật: {{ post.timestamp|date:'d.m.Y' }}</small>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="{{ post.categories.get_absolute_url }}" class="badge badge-{{ post.categories.get_color_display }}">{{ post.categories }}</a>
-                </div>
-              </div>
-            </div>
-          </section>
+  <main role="main" class="container mt-3">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="container mt-1 mb-3">
+          <form action="{% url 'blogs:search' %}" method="get" id="formSearch">
+            <label for="inSearch"></label>
+            <input type="search" name="q" class="form-control" id="inSearch" value="{{ search_query }}" placeholder="Tìm kiếm">
+          </form>
         </div>
-        {% empty %}
-        <div class="col mb-4">Không tìm thấy nội dung!</div>
-        {% endfor %}
-      </div>
-      <div class="d-none d-xl-block text-center mb-4">
-        <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
-      </div>
-      <div class="d-none d-sm-block d-xl-none text-center mb-4">
-        <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
-      </div>
-      <nav aria-label="Page navigation" class="container mb-4">
-        <div class="row">
-          <div class="col-6 text-right btn-page pr-2">
-            {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-secondary text-light w-75">Trước</a>
-            {% else %}
-            <a class="btn btn-outline-secondary text-secondary disabled w-75">Trước</a>
-            {% endif %}
-          </div>
-          <div class="col-6 btn-page pl-2">
-            {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="btn bg-dark text-light w-75">Tiếp</a>
-            {% else %}
-            <a class="btn btn-outline-dark text-dark disabled w-75">Tiếp</a>
-            {% endif %}
-          </div>
+        <div class="d-none d-xl-block text-center mb-4">
+          <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
         </div>
-      </nav>
+        <div class="d-none d-sm-block d-xl-none text-center mb-4">
+          <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
+          <div class="test"></div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2">
+          {% for post in post_list %}
+            <div class="col mb-4">
+              <section class="card h-100 shadow-sm border-0">
+                <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" class="card-img-top" alt="{{ post.title }}"></a>
+                <div class="card-body">
+                  <h2 class="card-title"><a href="{{ post.get_absolute_url }}" class="card-link text-dark link">{{ post }}</a></h2>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-8">
+                      <small class="text-muted">Cập nhật: {{ post.timestamp|date:'d.m.Y' }}</small>
+                    </div>
+                    <div class="col-4 text-right">
+                      <a href="{{ post.categories.get_absolute_url }}" class="badge badge-{{ post.categories.get_color_display }}">{{ post.categories }}</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          {% empty %}
+            <div class="col mb-4">Không tìm thấy nội dung!</div>
+          {% endfor %}
+        </div>
+        <div class="d-none d-xl-block text-center mb-4">
+          <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
+        </div>
+        <div class="d-none d-sm-block d-xl-none text-center mb-4">
+          <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
+        </div>
+        <nav aria-label="Page navigation" class="container mb-4">
+          <div class="row">
+            <div class="col-6 text-right btn-page pr-2">
+              {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-secondary text-light w-75">Trước</a>
+              {% else %}
+                <a class="btn btn-outline-secondary text-secondary disabled w-75">Trước</a>
+              {% endif %}
+            </div>
+            <div class="col-6 btn-page pl-2">
+              {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="btn bg-dark text-light w-75">Tiếp</a>
+              {% else %}
+                <a class="btn btn-outline-dark text-dark disabled w-75">Tiếp</a>
+              {% endif %}
+            </div>
+          </div>
+        </nav>
+      </div>
+      {% include 'blogs/sidebar.html' %}
     </div>
-    {% include 'blogs/sidebar.html' %}
-  </div>
-</main>
+  </main>
 {% endblock %}

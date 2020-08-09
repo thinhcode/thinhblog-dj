@@ -2,36 +2,36 @@
 {% block title %}{{ page }} | Thịnh Blog{% endblock %}
 {% block desc %}{% endblock %}
 {% block content %}
-<main role="main" class="container mt-3">
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="container mt-1 mb-3">
-        <form action="{% url 'blogs:search' %}" method="get" id="formSearch">
-          <label for="inSearch"></label>
-          <input type="search" name="q" class="form-control" id="inSearch" value="{{ search_query }}" placeholder="Tìm kiếm">
-        </form>
-      </div>
-      <div class="d-none d-xl-block text-center mb-4">
-        <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
-      </div>
-      <div class="d-none d-sm-block d-xl-none text-center mb-4">
-        <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
-      </div>
-      <section class="header">
-        <h2><strong>{{ page }}</strong></h2>
-        <hr class="my-3">
-        <article class="bg-white p-3 mb-4 rounded shadow-sm content">
-          {{ page.content|safe }}
-        </article>
+  <main role="main" class="container mt-3">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="container mt-1 mb-3">
+          <form action="{% url 'blogs:search' %}" method="get" id="formSearch">
+            <label for="inSearch"></label>
+            <input type="search" name="q" class="form-control" id="inSearch" value="{{ search_query }}" placeholder="Tìm kiếm">
+          </form>
+        </div>
         <div class="d-none d-xl-block text-center mb-4">
           <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
         </div>
         <div class="d-none d-sm-block d-xl-none text-center mb-4">
           <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
         </div>
-      </section>
+        <section class="header">
+          <h2><strong>{{ page }}</strong></h2>
+          <hr class="my-3">
+          <article class="bg-white p-3 mb-4 rounded shadow-sm content">
+            {{ page.content|safe }}
+          </article>
+          <div class="d-none d-xl-block text-center mb-4">
+            <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
+          </div>
+          <div class="d-none d-sm-block d-xl-none text-center mb-4">
+            <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
+          </div>
+        </section>
+      </div>
+      {% include 'blogs/sidebar.html' %}
     </div>
-    {% include 'blogs/sidebar.html' %}
-  </div>
-</main>
+  </main>
 {% endblock %}

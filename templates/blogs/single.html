@@ -6,85 +6,85 @@
   <link rel="stylesheet" href="{% static 'vendors/css/darcula.css' %}">
 {% endblock %}
 {% block content %}
-<main role="main" class="container mt-3">
-  <div class="row">
-    <div class="col-lg-8">
-      <div class="container mt-1 mb-3">
-        <form action="{% url 'blogs:search' %}" method="get" id="formSearch">
-          <label for="inSearch"></label>
-          <input type="search" name="q" class="form-control" id="inSearch" value="{{ search_query }}" placeholder="Tìm kiếm">
-        </form>
-      </div>
-      <div class="d-none d-xl-block text-center mb-4">
-        <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
-      </div>
-      <div class="d-none d-sm-block d-xl-none text-center mb-4">
-        <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
-      </div>
-      <section class="header">
-        <h2><strong>{{ post }}</strong></h2>
-        <hr class="mb-1">
-        <div class="row">
-          <div class="col-8">
-            <small class="text-mutex">Cập nhật: {{ post.timestamp|date:'d.m.Y' }} | <a href="{{ post.author.website }}" class="text-decoration-none text-info">{{ post.author }}</a></small>
-            <br>
-            <small class="text-mutex">Lượt xem: {{ post.views }}</small>
-            <br>
-            <small class="text-mutex">Tags:</small>
-            <small>
-              {% for tag in post.tags_to_list %}
-                {% if tag %}
-                <a href="{% url 'blogs:search' %}?q={{ tag }}" class="text-warning">#{{ tag }}</a>{% if not forloop.last %}, {% endif %}
-                {% endif %}
-              {% endfor %}
-            </small>
-          </div>
-          <div class="col-4 d-flex align-items-center justify-content-end">
-            <a href="{{ post.categories.get_absolute_url }}" class="badge badge-{{ post.categories.get_color_display }}">{{ post.categories }}</a>
-          </div>
+  <main role="main" class="container mt-3">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="container mt-1 mb-3">
+          <form action="{% url 'blogs:search' %}" method="get" id="formSearch">
+            <label for="inSearch"></label>
+            <input type="search" name="q" class="form-control" id="inSearch" value="{{ search_query }}" placeholder="Tìm kiếm">
+          </form>
         </div>
-      </section>
-      <hr class="mt-1">
-      <img src="{{ post.thumbnail.url }}" class="img-fluid rounded mx-auto d-block mb-3" alt="{{ post }}">
-      <article class="bg-white p-3 mb-4 rounded shadow-sm content">
-        {{ post.content|safe }}
-      </article>
-      <div class="d-none d-xl-block text-center mb-4">
-        <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
-      </div>
-      <div class="d-none d-sm-block d-xl-none text-center mb-4">
-        <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2">
-        {% for post in post_list %}
-        <div class="col mb-4">
-          <section class="card h-100 shadow-sm border-0">
-            <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" class="card-img-top" alt="{{ post.title }}"></a>
-            <div class="card-body">
-              <h2 class="card-title"><a href="{{ post.get_absolute_url }}" class="card-link text-dark link">{{ post }}</a></h2>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-8">
-                  <small class="text-muted">Cập nhật: {{ post.timestamp|date:'d.m.Y' }}</small>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="{{ post.categories.get_absolute_url }}" class="badge badge-{{ post.categories.get_color_display }}">{{ post.categories }}</a>
-                </div>
-              </div>
-            </div>
-          </section>
+        <div class="d-none d-xl-block text-center mb-4">
+          <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
         </div>
-        {% endfor %}
+        <div class="d-none d-sm-block d-xl-none text-center mb-4">
+          <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
+        </div>
+        <section class="header">
+          <h2><strong>{{ post }}</strong></h2>
+          <hr class="mb-1">
+          <div class="row">
+            <div class="col-8">
+              <small class="text-mutex">Cập nhật: {{ post.timestamp|date:'d.m.Y' }} | <a href="{{ post.author.website }}" class="text-decoration-none text-info">{{ post.author }}</a></small>
+              <br>
+              <small class="text-mutex">Lượt xem: {{ post.views }}</small>
+              <br>
+              <small class="text-mutex">Tags:</small>
+              <small>
+                {% for tag in post.tags_to_list %}
+                  {% if tag %}
+                    <a href="{% url 'blogs:search' %}?q={{ tag }}" class="text-warning">#{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </small>
+            </div>
+            <div class="col-4 d-flex align-items-center justify-content-end">
+              <a href="{{ post.categories.get_absolute_url }}" class="badge badge-{{ post.categories.get_color_display }}">{{ post.categories }}</a>
+            </div>
+          </div>
+        </section>
+        <hr class="mt-1">
+        <img src="{{ post.thumbnail.url }}" class="img-fluid rounded mx-auto d-block mb-3" alt="{{ post }}">
+        <article class="bg-white p-3 mb-4 rounded shadow-sm content">
+          {{ post.content|safe }}
+        </article>
+        <div class="d-none d-xl-block text-center mb-4">
+          <div class="ad ad-728x90">{{ ad_728x90.html_code|safe }}</div>
+        </div>
+        <div class="d-none d-sm-block d-xl-none text-center mb-4">
+          <div class="ad ad-468x60">{{ ad_468x60.html_code|safe }}</div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2">
+          {% for post in post_list %}
+            <div class="col mb-4">
+              <section class="card h-100 shadow-sm border-0">
+                <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" class="card-img-top" alt="{{ post.title }}"></a>
+                <div class="card-body">
+                  <h2 class="card-title"><a href="{{ post.get_absolute_url }}" class="card-link text-dark link">{{ post }}</a></h2>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-8">
+                      <small class="text-muted">Cập nhật: {{ post.timestamp|date:'d.m.Y' }}</small>
+                    </div>
+                    <div class="col-4 text-right">
+                      <a href="{{ post.categories.get_absolute_url }}" class="badge badge-{{ post.categories.get_color_display }}">{{ post.categories }}</a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          {% endfor %}
+        </div>
+        <section class="bg-white p-4 mb-4 rounded shadow-sm">
+          <h4>Bình luận</h4>
+          <hr>
+        </section>
       </div>
-      <section class="bg-white p-4 mb-4 rounded shadow-sm">
-        <h4>Bình luận</h4>
-        <hr>
-      </section>
+      {% include 'blogs/sidebar.html' %}
     </div>
-    {% include 'blogs/sidebar.html' %}
-  </div>
-</main>
+  </main>
 {% endblock %}
 {% block script_extra %}
   <script src="{% static 'vendors/js/highlight-10.1.2.pack.js' %}"></script>
