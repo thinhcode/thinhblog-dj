@@ -17,8 +17,8 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('favicon.ico/', RedirectView.as_view(url='/static/blogs/img/favicon.ico')),
-    path('robots.txt/', views.RobotsView.as_view()),
+    path('favicon.ico', RedirectView.as_view(url='/static/blogs/img/favicon.ico')),
+    path('robots.txt', views.RobotsView.as_view()),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('', include('blogs.urls')),
 ]
