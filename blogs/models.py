@@ -75,6 +75,10 @@ class Page(models.Model):
     class Meta:
         verbose_name = _('Trang')
         verbose_name_plural = _('Trang')
+        ordering = ['-title']
+
+    def get_absolute_url(self):
+        return reverse('blogs:page', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -96,6 +100,7 @@ class Post(models.Model):
     class Meta:
         verbose_name = _('Bài viết')
         verbose_name_plural = _('Bài viết')
+        ordering = ['-timestamp']
 
     def get_absolute_url(self):
         return reverse('blogs:post', kwargs={'slug': self.slug})
