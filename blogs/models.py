@@ -62,6 +62,9 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('blogs:category', kwargs={'slug': self.slug})
 
+    def get_color(self):
+        return self.get_color_display()
+
     def __str__(self):
         return self.title
 
