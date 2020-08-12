@@ -1,5 +1,6 @@
+from django.contrib.auth.models import User
 from django.test import TestCase
-from .models import Ad, Category, Page
+from .models import Ad, Author, Category, Page, Post, Setting
 
 
 class AdTest(TestCase):
@@ -12,6 +13,21 @@ class AdTest(TestCase):
         ad = Ad.objects.get(pk=1)
         self.assertEqual(ad.style, '1')
         self.assertEqual(str(ad), '300x250px')
+
+
+class AuthorTest(TestCase):
+    def setUp(self):
+        user = User.objects.create_user(
+            username='user'
+        )
+        Author.objects.create(
+            user=user,
+            display_name='test author'
+        )
+
+    def test_get_display_name(self):
+        author = Author.objects.get(pk=1)
+        self.assertEqual(str(author), 'test author')
 
 
 class CategoryTest(TestCase):
@@ -50,3 +66,44 @@ class PageTest(TestCase):
     def test_get_title(self):
         page = Page.objects.get(pk=1)
         self.assertEqual(str(page), 'test page')
+
+
+class PostTest(TestCase):
+    def setUp(self):
+        user = User.objects.create_user(
+            username='user'
+        )
+        author = Author.objects.create(
+            user=user,
+            display_name='test'
+        )
+        Post.objects.create(
+            title='test post',
+            slug='test-post',
+            author=author,
+            tags='test, post'
+        )
+
+    def test_get_absolute_url(self):
+        post = Post.objects.get(pk=1)
+        self.assertEqual(post.get_absolute_url(), f'/blogs/{post.slug}/')
+
+    def test_tags_to_list(self):
+        post = Post.objects.get(pk=1)
+        self.assertEqual(post.tags_to_list(), ['test', 'post'])
+
+    def test_get_title(self):
+        post = Post.objects.get(pk=1)
+        self.assertEqual(str(post), 'test post')
+
+
+class SettingTest(TestCase):
+    def setUp(self):
+        Setting.objects.create()
+        Setting.objects.create()
+
+    def test_get_title_is_same(self):
+        setting1 = Setting.objects.get(pk=1)
+        setting2 = Setting.objects.get(pk=2)
+        self.assertEqual(str(setting1), 'Thiết lập')
+        self.assertEqual(str(setting2), 'Thiết lập')
