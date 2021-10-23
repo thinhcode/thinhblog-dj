@@ -4,4 +4,5 @@ media/
 venv/
 
 .coverage
+configs.ini
 db.sqlite3
